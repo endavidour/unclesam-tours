@@ -67,7 +67,6 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-black text-white p-6">
       <div className="max-w-6xl mx-auto">
-        {/* Navigation Bar */}
         <div className="flex items-center justify-between border-b border-zinc-800 pb-4 mb-8">
           <div className="flex items-center gap-3">
             <Link href="/" className="p-2 rounded bg-zinc-900 border border-zinc-800 hover:border-[#800000]">
@@ -84,7 +83,7 @@ export default function AdminDashboard() {
                 setEditingTour(null);
                 setIsModalOpen(true);
               }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#800000] hover:bg-rose-900 text-xs font-bold uppercase tracking-wider transition-colors"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#800000] hover:bg-rose-900 text-xs font-bold uppercase tracking-wider transition-colors shadow-lg shadow-[#800000]/40"
             >
               <PlusCircle className="w-4 h-4" /> Add Tour Package
             </button>
@@ -97,15 +96,13 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Tour Table */}
+        {/* Clean Table: Image, Name, Description, Actions */}
         <div className="bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden">
           <table className="w-full text-left text-sm text-zinc-400">
             <thead className="bg-zinc-900 text-xs uppercase text-zinc-300">
               <tr>
                 <th className="p-4">Package</th>
-                <th className="p-4">Destination</th>
-                <th className="p-4">Duration</th>
-                <th className="p-4">Price</th>
+                <th className="p-4">Description</th>
                 <th className="p-4 text-right">Actions</th>
               </tr>
             </thead>
@@ -115,15 +112,15 @@ export default function AdminDashboard() {
                   <td className="p-4 font-bold text-white flex items-center gap-3">
                     <img
                       src={tour.image_url || 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=75&w=150&auto=format&fit=crop'}
-                      className="w-10 h-10 object-cover rounded"
+                      className="w-12 h-12 object-cover rounded-lg border border-zinc-800 shrink-0"
                       alt=""
                     />
-                    <span>{tour.title}</span>
+                    <span className="line-clamp-1">{tour.title}</span>
                   </td>
-                  <td className="p-4">{tour.destination}</td>
-                  <td className="p-4">{tour.duration}</td>
-                  <td className="p-4 text-rose-400 font-bold">₱{tour.price.toLocaleString()}</td>
-                  <td className="p-4 text-right space-x-2">
+                  <td className="p-4 max-w-md truncate text-zinc-400">
+                    {tour.highlights?.[0] || 'No description provided.'}
+                  </td>
+                  <td className="p-4 text-right space-x-2 shrink-0">
                     <button
                       onClick={() => {
                         setEditingTour(tour);
@@ -146,7 +143,6 @@ export default function AdminDashboard() {
           </table>
         </div>
 
-        {/* Create / Edit Modal */}
         <TourEditModal
           tour={editingTour}
           isOpen={isModalOpen}
