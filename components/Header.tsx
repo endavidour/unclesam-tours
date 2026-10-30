@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Search, MapPin, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
   searchQuery?: string;
@@ -58,7 +58,7 @@ export default function Header({ searchQuery = '', onSearchChange }: HeaderProps
 
           {/* Action & Contact Buttons */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
-            {/* Map Link */}
+            {/* Map Pin Location Link */}
             <a
               href="https://www.google.com/maps?sca_esv=77821bc6db13ead3&output=search&q=Unclesam+Thrift+Shop,+Malumanay,+Diliman,+Quezon+City,+Metro+Manila&source=lnms"
               target="_blank"
@@ -67,15 +67,6 @@ export default function Header({ searchQuery = '', onSearchChange }: HeaderProps
               className="p-2 sm:p-2.5 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-rose-400 hover:border-[#800000] transition-colors"
             >
               <MapPin className="w-4 h-4" />
-            </a>
-
-            {/* Phone Call Link */}
-            <a
-              href="tel:+639667901269"
-              title="Call Us"
-              className="p-2 sm:p-2.5 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-rose-400 hover:border-[#800000] transition-colors"
-            >
-              <Phone className="w-4 h-4" />
             </a>
 
             {/* Facebook Icon Button */}
