@@ -9,22 +9,12 @@ import Footer from '@/components/Footer';
 import { createClient } from '@/utils/supabase/client';
 import { Loader2 } from 'lucide-react';
 
-const CATEGORIES = [
-  'All',
-  'Japan Highlights',
-  'Southeast Asia',
-  'Local & Island Escapes',
-  'Europe & Long Haul',
-  'Custom Group Tours'
-];
-
 export default function HomePage() {
   const [tours, setTours] = useState<Tour[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedTour, setSelectedTour] = useState<Tour | null>(null);
-  const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(9);
 
   useEffect(() => {
     const fetchTours = async () => {
@@ -47,13 +37,12 @@ export default function HomePage() {
 
   const filteredTours = useMemo(() => {
     return tours.filter((tour) => {
-      const matchCat = selectedCategory === 'All' || tour.category === selectedCategory;
-      const matchSearch =
+      return (
         tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        tour.destination.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchCat && matchSearch;
+        tour.destination.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     });
-  }, [tours, selectedCategory, searchQuery]);
+  }, [tours, searchQuery]);
 
   return (
     <div className="min-h-screen flex flex-col bg-black">
@@ -61,35 +50,15 @@ export default function HomePage() {
       <HeroSlider />
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 w-full">
-        {/* Category Pills Filter */}
-        <div className="flex gap-2 overflow-x-auto pb-4 mb-8">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setSelectedCategory(cat);
-                setVisibleCount(6);
-              }}
-              className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all whitespace-nowrap ${
-                selectedCategory === cat
-                  ? 'bg-[#800000] text-white shadow-lg shadow-[#800000]/40'
-                  : 'bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         {/* Section Heading */}
-        <div className="mb-6 flex items-center justify-between">
+        <div className="mb-8 flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-black uppercase tracking-tight text-white flex items-center gap-2">
-              <span className="w-2.5 h-6 bg-[#800000] rounded-sm inline-block" />
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white flex items-center gap-2">
+              <span className="w-2.5 h-7 bg-[#800000] rounded-sm inline-block" />
               Available Tour Packages
             </h2>
-            <p className="text-xs text-zinc-500 mt-1">
-              Showing {filteredTours.length} package{filteredTours.length === 1 ? '' : 's'}
+            <p className="text-xs text-zinc-400 mt-1">
+              Showing {filteredTours.length} package{filteredTours.length === 1 ? '' : 's'} • Inquire directly for rates and schedules
             </p>
           </div>
         </div>
@@ -108,7 +77,6 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Load More Button for Bandwidth Protection */}
             {visibleCount < filteredTours.length && (
               <div className="text-center mt-12">
                 <button
@@ -122,7 +90,7 @@ export default function HomePage() {
           </>
         ) : (
           <div className="py-20 text-center rounded-2xl border border-dashed border-zinc-800 p-8">
-            <p className="text-zinc-500 text-sm">No tour packages found under this selection.</p>
+            <p className="text-zinc-500 text-sm">No tour packages found. Check back soon!</p>
           </div>
         )}
       </main>
