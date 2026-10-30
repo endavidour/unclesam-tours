@@ -37,3 +37,9 @@
 {"timestamp":"00:23:11.952","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
 {"timestamp":"00:23:11.969","source":"Browser","level":"WARN","message":"Image with src \"/unclesam-tours-logo.png\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
 {"timestamp":"00:23:11.970","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/unclesam-tours-logo.png\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:26:44.913","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:26:44.966","source":"Browser","level":"WARN","message":"Image with src \"/unclesam-tours-logo.png\" has \"fill\" but is missing \"sizes\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes"}
+{"timestamp":"00:26:44.966","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mImage with src \\\"/unclesam-tours-logo.png\\\" has \\\"fill\\\" but is missing \\\"sizes\\\" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes\\u001b[39m\""}
+{"timestamp":"00:31:07.228","source":"Server","level":"LOG","message":"✓ Compiled in 241ms"}
+{"timestamp":"00:31:12.365","source":"Server","level":"LOG","message":"✓ Compiled in 95ms"}
+{"timestamp":"00:32:53.105","source":"Server","level":"LOG","message":"✓ Compiled in 94ms"}

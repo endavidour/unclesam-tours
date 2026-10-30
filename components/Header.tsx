@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, Phone, MapPin, Settings } from 'lucide-react';
+import { Search, Phone, MapPin, MessageCircle } from 'lucide-react';
 
 interface HeaderProps {
   searchQuery?: string;
@@ -10,6 +10,10 @@ interface HeaderProps {
 }
 
 export default function Header({ searchQuery = '', onSearchChange }: HeaderProps) {
+  const whatsappUrl = `https://wa.me/639667901269?text=${encodeURIComponent(
+    'Hello UncleSam Tours! I would like to inquire about your tour packages.'
+  )}`;
+
   return (
     <header className="sticky top-0 z-40 w-full bg-black border-b border-[#800000]/40 shadow-2xl backdrop-blur-md bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,42 +56,51 @@ export default function Header({ searchQuery = '', onSearchChange }: HeaderProps
             </div>
           )}
 
-          {/* Direct Channels */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Action & Contact Buttons */}
+          <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* Map Link */}
             <a
               href="https://www.google.com/maps?sca_esv=77821bc6db13ead3&output=search&q=Unclesam+Thrift+Shop,+Malumanay,+Diliman,+Quezon+City,+Metro+Manila&source=lnms"
               target="_blank"
               rel="noopener noreferrer"
               title="Locate Us"
-              className="p-2 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-rose-400 hover:border-[#800000] transition-colors"
+              className="p-2 sm:p-2.5 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-rose-400 hover:border-[#800000] transition-colors"
             >
               <MapPin className="w-4 h-4" />
             </a>
+
+            {/* Phone Call Link */}
             <a
               href="tel:+639667901269"
               title="Call Us"
-              className="p-2 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-rose-400 hover:border-[#800000] transition-colors"
+              className="p-2 sm:p-2.5 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-rose-400 hover:border-[#800000] transition-colors"
             >
               <Phone className="w-4 h-4" />
             </a>
+
+            {/* Facebook Icon Button */}
             <a
-              href="https://facebook.com/unclesamtours"
+              href="https://www.facebook.com/unclesamtourservices"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 rounded-lg bg-[#800000] hover:bg-rose-900 text-white text-xs font-bold tracking-wide transition-colors flex items-center gap-1.5"
+              title="UncleSam Tours on Facebook"
+              className="p-2 sm:p-2.5 rounded-lg bg-[#800000] hover:bg-rose-900 text-white transition-colors flex items-center justify-center shadow-md"
             >
-              <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
-              <span className="hidden sm:inline">Facebook</span>
             </a>
-            <Link
-              href="/admin"
-              title="Admin Dashboard"
-              className="p-2 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-white hover:border-[#800000] transition-colors"
+
+            {/* WhatsApp Icon Button */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Chat on WhatsApp"
+              className="p-2 sm:p-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-colors flex items-center justify-center shadow-md shadow-emerald-950/40"
             >
-              <Settings className="w-4 h-4" />
-            </Link>
+              <MessageCircle className="w-4 h-4" />
+            </a>
           </div>
 
         </div>

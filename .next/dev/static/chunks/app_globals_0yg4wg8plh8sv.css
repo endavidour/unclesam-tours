@@ -69,9 +69,11 @@
     --color-red-400: #ff6568;
     --color-red-800: #9f0712;
     --color-red-950: #460809;
+    --color-emerald-500: #00bb7f;
     --color-emerald-600: #009767;
     --color-emerald-700: #007956;
     --color-emerald-900: #004e3b;
+    --color-emerald-950: #002c22;
     --color-rose-100: #ffe4e6;
     --color-rose-300: #ffa2ae;
     --color-rose-400: #ff667f;
@@ -153,9 +155,11 @@
       --color-red-400: lab(63.7053% 60.745 31.3109);
       --color-red-800: lab(33.7174% 55.8993 41.0293);
       --color-red-950: lab(13.003% 29.04 16.7519);
+      --color-emerald-500: lab(66.9756% -58.27 19.5419);
       --color-emerald-600: lab(55.0481% -49.9246 15.93);
       --color-emerald-700: lab(44.4871% -41.0396 11.0361);
       --color-emerald-900: lab(28.8637% -26.9249 5.45986);
+      --color-emerald-950: lab(15.0582% -17.9507 2.38369);
       --color-rose-100: lab(92.8221% 9.86832 2.60075);
       --color-rose-300: lab(76.6339% 38.3549 9.68835);
       --color-rose-400: lab(64.4125% 63.0291 19.2068);
@@ -1721,6 +1725,16 @@
     }
   }
 
+  .shadow-emerald-950\/40 {
+    --tw-shadow-color: #002c2266;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .shadow-emerald-950\/40 {
+      --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-emerald-950) 40%, transparent) var(--tw-shadow-alpha), transparent);
+    }
+  }
+
   .backdrop-blur-md {
     --tw-backdrop-blur: blur(var(--blur-md));
     -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
@@ -1841,6 +1855,10 @@
 
     .hover\:bg-\[\#800000\]:hover {
       background-color: maroon;
+    }
+
+    .hover\:bg-emerald-500:hover {
+      background-color: var(--color-emerald-500);
     }
 
     .hover\:bg-emerald-700:hover {
@@ -1967,8 +1985,16 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .sm\:gap-2\.5 {
+      gap: calc(var(--spacing) * 2.5);
+    }
+
     .sm\:gap-3 {
       gap: calc(var(--spacing) * 3);
+    }
+
+    .sm\:p-2\.5 {
+      padding: calc(var(--spacing) * 2.5);
     }
 
     .sm\:px-6 {
