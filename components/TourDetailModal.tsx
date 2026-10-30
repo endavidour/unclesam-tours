@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Check, MessageCircle, Clock, MapPin } from 'lucide-react';
+import { X, MessageCircle } from 'lucide-react';
 import { Tour } from './TourCard';
 
 interface TourDetailModalProps {
@@ -12,8 +12,10 @@ export default function TourDetailModal({ tour, onClose }: TourDetailModalProps)
   if (!tour) return null;
 
   const whatsappMessage = encodeURIComponent(
-    `Hello UncleSam Tours! I am interested in inquiring about the "${tour.title}" (${tour.duration}) package priced at ₱${tour.price.toLocaleString()}. Could you share available dates?`
+    `Hello UncleSam Tours! I would like to inquire about available dates, itinerary details, and rates for "${tour.title}".`
   );
+
+  const descriptionText = tour.highlights?.[0] || 'Inquire directly for package schedule and details.';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4">
@@ -36,89 +38,36 @@ export default function TourDetailModal({ tour, onClose }: TourDetailModalProps)
           </button>
 
           <div className="absolute bottom-4 left-5 right-5">
-            <span className="text-xs uppercase font-bold tracking-widest text-rose-400">
-              {tour.category}
-            </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white">{tour.title}</h2>
           </div>
         </div>
 
-        {/* Content */}
+        {/* Content Body */}
         <div className="p-6 space-y-6 flex-1">
-          {/* Quick Metrics */}
-          <div className="grid grid-cols-3 gap-3 p-3.5 rounded-xl bg-zinc-900/60 border border-zinc-800 text-center">
-            <div>
-              <span className="text-[10px] text-zinc-500 uppercase block">Destination</span>
-              <span className="text-sm font-bold text-white flex items-center justify-center gap-1 mt-0.5">
-                <MapPin className="w-3.5 h-3.5 text-rose-500" />
-                {tour.destination}
-              </span>
-            </div>
-            <div>
-              <span className="text-[10px] text-zinc-500 uppercase block">Duration</span>
-              <span className="text-sm font-bold text-white flex items-center justify-center gap-1 mt-0.5">
-                <Clock className="w-3.5 h-3.5 text-rose-500" />
-                {tour.duration}
-              </span>
-            </div>
-            <div>
-              <span className="text-[10px] text-zinc-500 uppercase block">Price / Pax</span>
-              <span className="text-sm font-extrabold text-rose-400 mt-0.5 block">
-                ₱{tour.price.toLocaleString()}
-              </span>
+          {/* Description Section */}
+          <div>
+            <h4 className="text-xs uppercase tracking-wider text-zinc-400 font-bold mb-2">
+              Tour Itinerary & Details
+            </h4>
+            <div className="text-sm text-zinc-300 leading-relaxed whitespace-pre-line bg-zinc-900/40 p-4 rounded-xl border border-zinc-800">
+              {descriptionText}
             </div>
           </div>
 
-          {/* Highlights */}
-          {tour.highlights && tour.highlights.length > 0 && (
-            <div>
-              <h4 className="text-xs uppercase tracking-wider text-zinc-400 font-bold mb-2">
-                Tour Highlights
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {tour.highlights.map((item, idx) => (
-                  <span
-                    key={idx}
-                    className="text-xs px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Inclusions */}
-          {tour.inclusions && tour.inclusions.length > 0 && (
-            <div>
-              <h4 className="text-xs uppercase tracking-wider text-zinc-400 font-bold mb-3">
-                Package Inclusions
-              </h4>
-              <ul className="space-y-2">
-                {tour.inclusions.map((inc, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-sm text-zinc-300">
-                    <Check className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
-                    <span>{inc}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Direct Inquiry CTAs (No Booking System) */}
-          <div className="pt-4 border-t border-zinc-800 space-y-3">
+          {/* Direct Redirection Inquiries */}
+          <div className="pt-2 border-t border-zinc-800 space-y-3">
             <a
-              href={`https://wa.me/639667901269?text=${whatsappMessage}`}
+              href={`https://wa.me/818053311738?text=${whatsappMessage}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm tracking-wide transition-colors shadow-lg shadow-emerald-900/30"
             >
               <MessageCircle className="w-4 h-4" />
-              Inquire via WhatsApp
+              Inquire Rates via WhatsApp
             </a>
 
             <a
-              href="https://facebook.com/unclesamtours"
+              href="https://www.facebook.com/unclesamtourservices"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-[#800000] hover:bg-rose-900 text-white font-bold text-sm tracking-wide transition-colors"
