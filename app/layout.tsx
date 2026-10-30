@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: '#000000',
-  colorScheme: 'dark',
+  colorScheme: 'light',
 };
 
 export default function RootLayout({
@@ -17,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark bg-black">
-      <body className="bg-black text-white antialiased min-h-screen flex flex-col">
+    <html lang="en" className="bg-white">
+      <body className="bg-white text-zinc-900 antialiased min-h-screen flex flex-col">
         {children}
       </body>
     </html>
