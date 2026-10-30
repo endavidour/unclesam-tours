@@ -1,0 +1,5 @@
+{"timestamp":"00:00:00.755","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:08.015","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:54.253","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
+{"timestamp":"00:00:54.453","source":"Server","level":"WARN","message":"⚠ ./app/globals.css:3:10\nWarning: Parsing CSS source code failed\n  1 | @tailwind base;\n  2 | @tailwind components;\n> 3 | @tailwind utilities;\n    |          ^\n\nUnknown at rule: @tailwind\n\nGenerated code of PostCSS transform of file content of app/globals.css:\n./app/globals.css:3:10\n  1 | @tailwind base;\n  2 | @tailwind components;\n> 3 | @tailwind utilities;\n    |          ^\n\nImport trace:\n  Client Component Browser:\n    ./app/globals.css [Client Component Browser]\n    ./app/layout.tsx [Server Component]\n\n"}
+{"timestamp":"00:02:20.809","source":"Server","level":"LOG","message":"✓ Compiled in 244ms"}
