@@ -1293,6 +1293,10 @@
     fill: currentColor;
   }
 
+  .fill-rose-500 {
+    fill: var(--color-rose-500);
+  }
+
   .object-cover {
     object-fit: cover;
   }
