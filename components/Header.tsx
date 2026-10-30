@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Search, Compass, Phone, MapPin, Settings } from 'lucide-react';
+import Image from 'next/image';
+import { Search, Phone, MapPin, Settings } from 'lucide-react';
 
 interface HeaderProps {
   searchQuery?: string;
@@ -16,14 +17,20 @@ export default function Header({ searchQuery = '', onSearchChange }: HeaderProps
           
           {/* Brand Logo & Name */}
           <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-gradient-to-br from-zinc-900 to-black border border-[#800000] flex items-center justify-center shadow-lg group-hover:border-rose-500 transition-all duration-300">
-              <Compass className="w-5 h-5 text-rose-500 group-hover:rotate-45 transition-transform duration-500" />
+            <div className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full overflow-hidden border border-[#800000] shadow-lg group-hover:border-rose-500 transition-all duration-300 bg-black flex-shrink-0">
+              <Image
+                src="/unclesam-tours-logo.png"
+                alt="UncleSam Tours Logo"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-black tracking-tight text-white uppercase flex items-center gap-1.5">
                 UNCLESAM <span className="text-xs px-2 py-0.5 rounded bg-[#800000] text-rose-100 font-bold tracking-wider">TOURS</span>
               </span>
-              <span className="text-[10px] text-zinc-500 tracking-widest uppercase hidden sm:block">
+              <span className="text-[10px] text-zinc-400 tracking-widest uppercase hidden sm:block">
                 Exclusive Travel Packages
               </span>
             </div>
@@ -45,10 +52,10 @@ export default function Header({ searchQuery = '', onSearchChange }: HeaderProps
             </div>
           )}
 
-          {/* Direct Channels & Admin Navigation */}
+          {/* Direct Channels */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             <a
-              href="https://dev.azure.com/cvbenoman/UpdateTech%20-%20JazGotTours"
+              href="https://www.google.com/maps?sca_esv=77821bc6db13ead3&output=search&q=Unclesam+Thrift+Shop,+Malumanay,+Diliman,+Quezon+City,+Metro+Manila&source=lnms"
               target="_blank"
               rel="noopener noreferrer"
               title="Locate Us"

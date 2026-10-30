@@ -15,7 +15,34 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 const metadata = {
     title: 'UncleSam Tours | Curated Tour Packages',
-    description: 'Explore signature tour packages to Japan (Nagoya, Tokyo, Hakone) and beyond.'
+    description: 'Explore signature tour packages to Japan (Nagoya, Tokyo, Hakone) and beyond.',
+    icons: {
+        icon: '/unclesam-tours-logo.png',
+        apple: '/unclesam-tours-logo.png'
+    },
+    openGraph: {
+        title: 'UncleSam Tours | Curated Tour Packages',
+        description: 'Explore signature tour packages to Japan (Nagoya, Tokyo, Hakone) and beyond.',
+        siteName: 'UncleSam Tours',
+        images: [
+            {
+                url: '/unclesam-tours-logo.png',
+                width: 800,
+                height: 800,
+                alt: 'UncleSam Tours Logo'
+            }
+        ],
+        locale: 'en_PH',
+        type: 'website'
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'UncleSam Tours | Curated Tour Packages',
+        description: 'Explore signature tour packages to Japan (Nagoya, Tokyo, Hakone) and beyond.',
+        images: [
+            '/unclesam-tours-logo.png'
+        ]
+    }
 };
 const viewport = {
     themeColor: '#000000',
@@ -30,12 +57,12 @@ function RootLayout({ children }) {
             children: children
         }, void 0, false, {
             fileName: "[project]/app/layout.tsx",
-            lineNumber: 21,
+            lineNumber: 46,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/layout.tsx",
-        lineNumber: 20,
+        lineNumber: 45,
         columnNumber: 5
     }, this);
 }
