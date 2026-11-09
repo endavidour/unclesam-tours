@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search, MapPin, MessageCircle } from 'lucide-react';
+import { Search, MapPin, MessageCircle, Camera } from 'lucide-react';
 
 interface HeaderProps {
   searchQuery?: string;
@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 
 export default function Header({ searchQuery = '', onSearchChange }: HeaderProps) {
-  const whatsappUrl = `https://wa.me/639667901269?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/818053311738?text=${encodeURIComponent(
     'Hello UncleSam Tours! I would like to inquire about your tour packages.'
   )}`;
 
@@ -58,6 +58,16 @@ export default function Header({ searchQuery = '', onSearchChange }: HeaderProps
 
           {/* Action & Contact Buttons */}
           <div className="flex items-center gap-2 sm:gap-2.5 shrink-0">
+            {/* Tour Moments Gallery Link */}
+            <Link
+              href="/moments"
+              className="px-3 py-1.5 sm:py-2 rounded-lg bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-white hover:border-[#800000] transition-colors flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider"
+              title="Client Photo Moments"
+            >
+              <Camera className="w-3.5 h-3.5 text-rose-500" />
+              <span className="hidden sm:inline">Tour Moments</span>
+            </Link>
+
             {/* Map Pin Location Link */}
             <a
               href="https://www.google.com/maps?sca_esv=77821bc6db13ead3&output=search&q=Unclesam+Thrift+Shop,+Malumanay,+Diliman,+Quezon+City,+Metro+Manila&source=lnms"
